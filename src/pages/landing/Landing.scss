@@ -19,7 +19,7 @@
     
     .intro-background{
         width: 100%;
-        height: 100vh;
+        height: 90vh;
         object-fit: cover;
         top: 0;
     }
@@ -192,11 +192,117 @@
 }
 
 
-//////////////////////////
+////////////////////////// Search-bar
+.search-section{
+    margin-top: -150px;
+    z-index: 9999;
+    background-color: #ffffff;
+    width: 100%;
+    //justify-content: space-between;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 0 rgba(6, 29, 92, 0.08);
+}
+form {
+    margin-top: -50px;
+    z-index: 9999;
+}
 .search-bar{
+    width: 80%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+label{
+    display: none!important;
+}
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=select]:focus,
+select:focus,
+option:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+    box-shadow: inset 0 -1px 0 #ddd;
 }
 
-.input{
-    width: 500px;
+
+//////////////////////////@at-root
+.section-title{
+    text-align: center;
+    margin: 0 0 50px;
+}
+
+.single-destination{
+    width: 33%;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 0 rgba(6, 29, 92, 0.08);
+    .thumb-destination > img{
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .details-destination{
+        padding: 0 30px 25px;
+        display: flex;
+        flex-direction: column;
+        .item-list{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 20px;
+            padding: 10px;
+            .day-start , .schedule, .star{
+                display: flex;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                font-size: 1rem;
+            }
+        }
+
+        .title{
+            margin: 0 0 10px;
+        }
+        .location{
+            font-size: 1rem;
+            padding: 0 0 15px;
+            color: #999999;
+            border-bottom: 1px solid #999999;
+        }
+        .book-price{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .price{
+                font-size: 20px;
+                color: #dc834e;
+            }
+            .book{
+                background: #dc834e;
+                outline: none;
+                border-radius: 10px;
+                border: none;
+                font-size: 16px;
+                font-weight: bolder;
+                padding: 10px;
+            }
+        }
+    }
 }

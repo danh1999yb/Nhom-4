@@ -23,15 +23,9 @@ import { Carousel } from 'react-responsive-carousel';
 import { BsArrowRightCircle,BsArrowLeftCircle } from "react-icons/bs";
 
 import {
-  Badge,
   Button,
-  Card,
-  CardBody,
-  CardHeader,
   Col,
-  Collapse,
   Container,
-  Media,
   Nav,
   NavItem,
   NavLink,
@@ -44,24 +38,21 @@ import {
   Row,
   InputGroupAddon
 } from "reactstrap";
+import Dropdown from "reactstrap/lib/Dropdown";
 
 import { FastField, Form, Formik } from "formik";
-import { ReactstrapInput } from "reactstrap-formik";
+import { ReactstrapInput, ReactstrapSelect } from "reactstrap-formik";
 
 import {
-  Box,
   User,
   Send,
-  ArrowRight,
-  ArrowLeft
+  Calendar,
+  Clock,
+  Star
 
 } from "react-feather";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 
-import screenshotThemeCorporate from "../../assets/img/screenshots/theme-corporate.jpg";
-import Dropdown from "reactstrap/lib/Dropdown";
 
 
 
@@ -194,7 +185,7 @@ const Intro = (props) => {
         <div className='intro-travel' key="content-0">
           <video src={TravelForest} type="video/mp4" controls={false} loop muted className="intro-background"/>
           <div className="intro-title">
-              <p className="intro-text">La Petite Venise <br></br> Colmar, France </p>
+              <p className="intro-text">La Petite Venise <br /> Colmar, France </p>
               <button className="intro-button">Explore now</button>
               <div className="intro-info">
                   <div className="intro-info__price">
@@ -233,7 +224,7 @@ const Intro = (props) => {
         <div className="intro-travel">
           <img src={Travel_ChauAu} alt="travel" className="intro-background" />
           <div className="intro-title">
-              <p className="intro-text">La Petite Venise <br></br> Colmar, France </p>
+              <p className="intro-text">La Petite Venise <br/> Colmar, France </p>
               <button className="intro-button">Explore now</button>
               <div className="intro-info">
                   <div className="intro-info__price">
@@ -258,11 +249,7 @@ const Intro = (props) => {
 const Styles = (props) => (
   <section id="demos" className="pt-3 pb-6">
     <Container className="position-relative z-3">
-      <Row>
-        {/* <div>
-          <span>Destination</span>
-          <input type="text" name="" id="" placeholder="Where are you going?"/>
-        </div> */}
+      <div className="search-section">
         <Formik
             key={Date.parse(new Date())}    // fix bug: not-re-render when initialValues changing
             enableReinitialize
@@ -280,7 +267,7 @@ const Styles = (props) => (
 
             <Form>
                 <div className="search-bar">
-                  <Row style={{ alignItems: "center" }}>
+                  <div style={{ alignItems: "left", display:"flex",flexDirection:"column" }}>
                     <Col xs="auto">
                       Destination
                     </Col>
@@ -293,56 +280,86 @@ const Styles = (props) => (
                             component={ReactstrapInput}
                         />
                     </Col>
-                  </Row>
-                  <Row style={{ alignItems: "center" }}>
+                  </div>
+                  <div style={{ alignItems: "left", display:"flex",flexDirection:"column" }}>
                     <Col xs="auto">
-                      Destination
+                      Departing
                     </Col>
                     <Col >
                         <FastField
                             type="date"
                             bsSize="lg"
                             name="date"
-                            placeholder="Where are you going?"
+                            placeholder="Departing"
                             component={ReactstrapInput}
                         />
                     </Col>
-                  </Row>
-                  <Row style={{ alignItems: "center" }}>
+                  </div>
+                  <div style={{ alignItems: "left", display:"flex",flexDirection:"column" }}>
                     <Col xs="auto">
-                      Destination
+                      Price
                     </Col>
                     <Col >
                         <FastField
-                            className="input"
                             type="select"
                             bsSize="lg"
-                            name="date"
-                            placeholder="Where are you going?"
-                            // component={ReactstrapInput}
+                            name="price"
+                            component={ReactstrapSelect}
+                            inputprops = {{
+                                name: "price",
+                                id: "price",
+                                options: ["1000$", "2000$", "3000$", "4000$"],
+                                // defaultOption: "Country"
+                                defaultOption: "Select"
+                            }}
                         />
                     </Col>
-                  </Row>
-                  <Row style={{ alignItems: "center" }}>
+                  </div>
+                  <div style={{  }}>
                     <Col xs="auto">
                           <InputGroupAddon addonType="append" color="primary" >
                               <Button type='submit'>Tìm kiếm</Button>
                           </InputGroupAddon>
                       </Col>
-                  </Row>
+                  </div>
                 </div>
             </Form>
         </Formik >
-      </Row>
+      </div>
     </Container>
   </section>
 );
 
 const Dashboards = () => (
   <section className="py-6 bg-white">
+    <h1 className="section-title">Popular Tours</h1>
     <Container>
       <Row>
-        
+        <div className="single-destination">
+          <div className="thumb-destination">
+            <img src={Travel_HaLong3} alt="destination" />
+          </div>
+          <div className="details-destination">
+            <div className="item-list">
+              <div className="day-start">
+                <Calendar size={16} color={"#dc834e"} style={{marginRight: 3}}/>
+                22Feb
+              </div>
+              <div className="schedule">
+                <Clock size={16} color={"#dc834e"} style={{marginRight: 3}}/>
+                8 days</div>
+              <div className="star">
+                <Star size={16} color={"#dc834e"} style={{marginRight: 3}}/>
+                5</div>
+            </div>
+            <h2 className="title">Ha Long Bay</h2>
+            <p className="location">Quang Ninh City, Viet Nam</p>
+            <div className="book-price">
+              <div className="price">1000$</div>
+              <button className="book">Book now</button>
+            </div>
+          </div>
+        </div>
       </Row>
     </Container>
   </section>
@@ -352,7 +369,7 @@ const Features = () => (
   <section className="py-6">
     <Container>
       <Row>
-        
+
       </Row>
     </Container>
   </section>
