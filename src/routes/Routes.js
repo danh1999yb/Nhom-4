@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
+    tourDetail as tourDetailRoutes,
   landing as landingRoutes,
   dashboard as dashboardRoutes,
   page as pageRoutes
@@ -48,6 +49,7 @@ const Routes = () => (
   <Router>
     <ScrollToTop>
       <Switch>
+          {childRoutes(LandingLayout,tourDetailRoutes )}
         {childRoutes(LandingLayout, landingRoutes)}
         {childRoutes(DashboardLayout, dashboardRoutes)}
         {childRoutes(AuthLayout, pageRoutes)}

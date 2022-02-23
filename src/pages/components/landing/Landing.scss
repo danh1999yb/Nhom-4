@@ -3,8 +3,8 @@
 }
 .intro{
     width: 100%;
-    position: absolute;
-    top: 0;
+    //position: absolute;
+    //top: 0;
     
     .carousel.carousel-slider li.slide.selected {
         z-index: 0 !important;
@@ -194,7 +194,7 @@
 
 ////////////////////////// Search-bar
 .search-section{
-    margin-top: -150px;
+    margin-top: -80px;
     z-index: 9999;
     background-color: #ffffff;
     width: 100%;
@@ -202,10 +202,6 @@
     position: relative;
     border-radius: 10px;
     box-shadow: 0 0 30px 0 rgba(6, 29, 92, 0.08);
-}
-form {
-    margin-top: -50px;
-    z-index: 9999;
 }
 .search-bar{
     width: 80%;
@@ -262,6 +258,7 @@ option:focus,
         padding: 0 30px 25px;
         display: flex;
         flex-direction: column;
+        background-color: #ffffff;
         .item-list{
             display: flex;
             justify-content: space-between;
@@ -306,3 +303,9 @@ option:focus,
         }
     }
 }
+
+//.footer{
+//    width: 100%;
+//    position: absolute;
+//    bottom: 0;
+//}

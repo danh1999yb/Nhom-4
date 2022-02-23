@@ -1,24 +1,14 @@
 import async from "../components/Async";
 
 import {
-  Bell as Bellicon,
-  BookOpen as BookOpenIcon,
-  Calendar as CalendarIcon,
-  CheckSquare as CheckSquareIcon,
-  Grid as GridIcon,
-  Heart as HeartIcon,
   Layout as LayoutIcon,
-  List as ListIcon,
-  MapPin as MapPinIcon,
-  Monitor as MonitorIcon,
-  PieChart as PieChartIcon,
   Sliders as SlidersIcon,
   Users as UsersIcon
 } from "react-feather";
 
 // Landing
-import Landing from "../pages/landing/Landing";
-
+import Landing from "../pages/components/landing/Landing";
+import Home from "../pages/components/landing/Home";
 // Auth
 import SignIn from "../pages/auth/SignIn";
 import SignUp from "../pages/auth/SignUp";
@@ -27,27 +17,12 @@ import Page404 from "../pages/auth/Page404";
 import Page500 from "../pages/auth/Page500";
 
 // Layouts
-import Boxed from "../pages/layouts/Boxed";
-import SidebarCollapsed from "../pages/layouts/SidebarCollapsed";
-import SidebarSticky from "../pages/layouts/SidebarSticky";
-import ThemeClassic from "../pages/layouts/ThemeClassic";
-import ThemeCorporate from "../pages/layouts/ThemeCorporate";
-import ThemeModern from "../pages/layouts/ThemeModern";
+
 
 // Misc
 import Blank from "../pages/misc/Blank";
 
 // UI Elements
-import Alerts from "../pages/ui-elements/Alerts";
-import Buttons from "../pages/ui-elements/Buttons";
-import Cards from "../pages/ui-elements/Cards";
-import Carousel from "../pages/ui-elements/Carousel";
-import EmbedVideo from "../pages/ui-elements/EmbedVideo";
-import General from "../pages/ui-elements/General";
-import Grid from "../pages/ui-elements/Grid";
-import Modals from "../pages/ui-elements/Modals";
-import Tabs from "../pages/ui-elements/Tabs";
-import Typography from "../pages/ui-elements/Typography";
 
 // Notifications
 import Notifications from "../pages/notifications/Notifications";
@@ -56,11 +31,8 @@ import Notifications from "../pages/notifications/Notifications";
 import Profile from "../pages/pages/Profile";
 import Settings from "../pages/pages/Settings";
 import Clients from "../pages/pages/Clients";
-import Projects from "../pages/pages/Projects";
 import Invoice from "../pages/pages/Invoice";
 import Pricing from "../pages/pages/Pricing";
-import Tasks from "../pages/pages/Tasks";
-import Chat from "../pages/pages/Chat";
 import Tables from "../pages/pages/group/Groups";
 // Documentation
 import Introduction from "../pages/docs/Introduction";
@@ -74,6 +46,9 @@ import NewPassword from "../pages/auth/NewPassword";
 
 // auth
 import withAuth from "../HOC/withAuth";
+
+//component
+import TourDetail from "../pages/components/TourDetail";
 
 // Dashboards
 const Default = async(() => import("../pages/dashboards/Default"));
@@ -100,28 +75,22 @@ const ExpandableRowsTables = async(() =>
   import("../pages/tables/ExpandableRows")
 );
 
-// Charts
-const Chartjs = async(() => import("../pages/charts/Chartjs"));
-const ApexCharts = async(() => import("../pages/charts/ApexCharts"));
 
-// Icons
-const FontAwesome = async(() => import("../pages/icons/FontAwesome"));
-const Feather = async(() => import("../pages/icons/Feather"));
-
-// Calendar
-const Calendar = async(() => import("../pages/calendar/Calendar"));
-
-// Maps
-const VectorMaps = async(() => import("../pages/maps/VectorMaps"));
-const GoogleMaps = async(() => import("../pages/maps/GoogleMaps"));
 
 // Routes
 const landingRoutes = {
-  path: "/",
-  name: "Landing Page",
-  component: Landing,
-  children: null
-};
+    path: "/",
+    name: "Landing Page",
+    component: Home,
+    children: null
+  };
+
+const tourDetailRoutes = {
+    path: "/tour-detail/:tourId",
+    name: "Tour Detail",
+    component: TourDetail,
+
+}
 
 const dashboardRoutes = {
   path: "/dashboard",
@@ -232,7 +201,7 @@ export const dashboard = [
 
 // Landing specific routes
 export const landing = [landingRoutes];
-
+export const tourDetail = [tourDetailRoutes];
 // Auth specific routes
 export const page = [authRoutes];
 
